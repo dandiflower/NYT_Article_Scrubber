@@ -47,7 +47,7 @@ app.get("/", function(req, res) {
 
     // Now, we grab every tag, and do the following:
     $("article h2").each(function(i, element) {
-      // console.log(element.body.table.tbody.tr.td.font.table.tbody.tr.);
+
 
       // Save an empty result object
       var result = {};
@@ -56,7 +56,9 @@ app.get("/", function(req, res) {
       result.title = $(this)
         .children("a")
         .text();
-      result.link = $(this)
+      result.date = $(this)
+        .children()
+      result.url = $(this)
         .children("a")
         .attr("href");
       // result.link = "http://www.ubu.com/outsiders" + result.link.slice(1);

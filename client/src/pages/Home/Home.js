@@ -12,9 +12,21 @@ import CardHeader from "../../components/CardHeader";
 class Articles extends Component {
   state = {
     title: "",
-    date: "",
+    // date: "",
     url: ""
   }
+
+  componentDidMount() {
+    this.loadArticles();
+  }
+
+  loadArticles = () => {
+    API.getArticles()
+      .then(res =>
+        this.setState({ Articles: res.data, title: "", url: "" })
+      )
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (

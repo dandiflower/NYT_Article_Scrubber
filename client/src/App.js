@@ -7,9 +7,9 @@ const App = () => (
     <div>
       <Navbar />
       <Switch>
-        {/* <Route exact path="/" component={} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/article" component={} />
-        <Route component={NoMatch} /> */}
+        <Route component={NoMatch} />
       </Switch>
     </div>
   </Router>

@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/Navbar";
+import ResultsCard from "./components/ResultsCard";
+import SavedArticlesCard from "./components/SavedArticlesCard";
+import SearchCard from "./components/SearchCard";
 
 class App extends Component {
+  
+  state = {
+
+  }
+
+
   render() {
     return (
       <div className="App">

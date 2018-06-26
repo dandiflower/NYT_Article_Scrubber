@@ -1,9 +1,9 @@
 import React from "react";
 
-const cardHeader = () => (
+const CardHeader = () => (
     <div className="card-header">
         
     </div>
 );
 
-export default cardHeader;
+export default CardHeader;

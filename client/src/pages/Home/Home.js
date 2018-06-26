@@ -11,21 +11,35 @@ import CardHeader from "../../components/CardHeader";
 
 class Articles extends Component {
   state = {
+    articles: [],
+    topic: "",
     title: "",
-    // date: "",
+    start_date: "",
+    end_date: "",
     url: ""
   }
 
-  componentDidMount() {
-    this.loadArticles();
+  getArticles = () => {
+    API.getArticles({
+      title: this.state.title,
+      start_date: this.state.start_date,
+      end_date: this.state.end_date
+    })
+      .then(res =>
+      this.setState({
+        articles: res.data,
+
+      }))
   }
 
-  loadArticles = () => {
-    API.getArticles()
-      .then(res =>
-        this.setState({ Articles: res.data, title: "", url: "" })
-      )
-      .catch(err => console.log(err));
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    this.getArticles();
   };
 
   render() {
@@ -37,9 +51,13 @@ class Articles extends Component {
         </Navbar>
 
         <CardHeader> Search
-          <SearchCard>
-
-          </SearchCard>
+          <SearchCard 
+            handleChange={this.handleChange}
+            topic={this.state.topic}
+            start_date={this.state.start_date}
+            end_date={this.state.end_date}
+            handleFormSubmit={this.handleFormSubmit}
+          />
         </CardHeader>
 
         <CardHeader> Results

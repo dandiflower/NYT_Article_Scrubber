@@ -12,7 +12,8 @@ import CardHeader from "../../components/CardHeader";
 class Articles extends Component {
   state = {
     title: "",
-    date: "",
+    start_date: "",
+    end_date: "",
     url: ""
   }
 
@@ -26,7 +27,7 @@ class Articles extends Component {
 
         <CardHeader> Search
           <SearchCard>
-
+            
           </SearchCard>
         </CardHeader>
 

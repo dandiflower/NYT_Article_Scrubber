@@ -9,7 +9,7 @@ import CardHeader from "../../components/CardHeader";
 
 
 
-class Articles extends Component {
+class Saved extends Component {
   state = {
     articles: [],
     topic: "",
@@ -76,4 +76,4 @@ class Articles extends Component {
   }
 }
 
-export default Articles;
+export default Saved;

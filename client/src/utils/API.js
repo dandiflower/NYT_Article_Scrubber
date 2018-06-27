@@ -5,10 +5,10 @@ export default {
   getArticles: function() {
     return axios.get("/api/Articles");
   },
-  // Gets the article with the given id
-  getArticles: function(id) {
-    return axios.get("/api/Articles" + id);
-  },
+  // // Gets the article with the given id
+  // getArticles: function(id) {
+  //   return axios.get("/api/Articles" + id);
+  // },
   // Deletes the article with the given id
   deleteArticles: function(id) {
     return axios.delete("/api/Articles" + id);

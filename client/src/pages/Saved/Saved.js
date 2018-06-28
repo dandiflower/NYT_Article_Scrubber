@@ -42,6 +42,21 @@ class Saved extends Component {
     this.getArticles();
   };
 
+  
+  handleSave = event => {
+    event.preventDefault();
+    API.saveArticles({
+      title: this.state.title,
+      start_date: this.state.start_date,
+      end_date: this.state.end_date
+    })
+      .then(res =>
+        this.setState({
+          articles: res.data,
+
+        }))
+  }
+
   render() {
     return (
       <div>
@@ -61,7 +76,7 @@ class Saved extends Component {
         </CardHeader>
 
         <CardHeader> Results
-          <ResultsCard>
+          <ResultsCard handleSave={article.handlesSave}>
 
           </ResultsCard>
         </CardHeader>

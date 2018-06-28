@@ -135,7 +135,7 @@ class Home extends Component {
     return (
       <div>
         <div className="container">
-          <h1 className="text-center">Search By For An Article!</h1>
+          <h1 className="text-center">Search For An Article!</h1>
           <SearchForm
             handleFormSubmit={this.handleFormSubmit}
           />

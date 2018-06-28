@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // Configure middleware
 
@@ -37,7 +37,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytreact");
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+
 
 // Start the API server
 app.listen(PORT, function () {

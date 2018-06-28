@@ -26,6 +26,7 @@ class Home extends Component {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
+        console.log(res.data)
         this.setState({ results: res.data });
       })
       .catch(err => console.log("search err",err));
@@ -37,14 +38,19 @@ class Home extends Component {
     // console.log(this.state.results[index]);
     
     const article = this.state.results[index];
+   
+  
+      const saveArticle = {
+        headline: article.headline['print_headline'],
+        url: article['web_url'],
+        description: article.snippet,
+        source: article.source,
+        pub_date: article['pub_date'],
+    
+      }
 
-    const saveArticle = {
-      headline: article.headline['print_headline'],
-      url: article['web_url'],
-      description: article.snippet,
-      source: article.source,
-      pub_date: article['pub_date'],
-      image: article.multimedia[0].legacy.xlarge
+    if(article.multimedia.length != 0) { 
+      saveArticle["image"] = article.multimedia[0].legacy.xlarge
     }
    // console.log(saveArticle);
     API.saveArticles(saveArticle)

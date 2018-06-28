@@ -12,50 +12,44 @@ import CardHeader from "../../components/CardHeader";
 class Saved extends Component {
   state = {
     articles: [],
-    topic: "",
-    title: "",
-    start_date: "",
-    end_date: "",
-    url: ""
   }
 
+  componentDidMount(){
+
+  }
   getArticles = () => {
-    API.getArticles({
-      title: this.state.title,
-      start_date: this.state.start_date,
-      end_date: this.state.end_date
-    })
+    API.getArticles()
       .then(res =>
       this.setState({
-        articles: res.data,
-
+       
+        this
       }))
   }
 
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+  // handleChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({ [name]: value });
+  // };
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    this.getArticles();
-  };
+  // handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   this.getArticles();
+  // };
 
   
-  handleSave = event => {
-    event.preventDefault();
-    API.saveArticles({
-      title: this.state.title,
-      start_date: this.state.start_date,
-      end_date: this.state.end_date
-    })
-      .then(res =>
-        this.setState({
-          articles: res.data,
+  // handleSave = event => {
+  //   event.preventDefault();
+  //   API.saveArticles({
+  //     title: this.state.title,
+  //     start_date: this.state.start_date,
+  //     end_date: this.state.end_date
+  //   })
+  //     .then(res =>
+  //       this.setState({
+  //         articles: res.data,
 
-        }))
-  }
+  //       }))
+  // }
 
   render() {
     return (

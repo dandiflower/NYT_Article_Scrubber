@@ -25,7 +25,7 @@ router.get("/article", (req, res)=>{
 // Delete function in articlecontroller
 router.delete("/article/:id", (req, res) => {
   articleController.DeleteOne(req.params.id, (results)=>{
-    console.log(results);
+    console.log("results",results);
     res.json(results);
   })
 });

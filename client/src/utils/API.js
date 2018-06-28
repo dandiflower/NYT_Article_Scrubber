@@ -5,13 +5,14 @@ export default {
   getArticles: function () {
     return axios.get("http://localhost:3002/api/article");
   },
+  
   // // Gets the article with the given id
   // getArticles: function(id) {
   //   return axios.get("/api/Articles" + id);
   // },
   // Deletes the article with the given id
-  deleteArticles: function(id) {
-    return axios.delete("http://localhost:3002/api/article" + id);
+  deleteArticle: function(id) {
+    return axios.delete("http://localhost:3002/api/article/" + id);
   },
   // Saves a article to the database
   saveArticles: function(articleData) {

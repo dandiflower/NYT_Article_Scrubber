@@ -23,13 +23,18 @@ module.exports = {
   FindAll: (cb) =>{
     db.Article
       .find()
-      .sort({ date: -1 })
+      .sort({ date: 1 })
       .then(dbModel => cb(dbModel))
       .catch(err => cb(err));
   },
 
-  DeleteOne:  (article, cb) => {
-
+  DeleteOne:  (articleID, cb) => {
+    db.Article.remove({ _id: articleID })
+    .then(dbResults => cb(dbResults))
+    .catch(function(err) {
+      console.log("err", err)
+      return cb(err);
+    })
   }
 
   // scraper: function(req, res) {

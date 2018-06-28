@@ -9,7 +9,7 @@ var mongoose = require("mongoose");
 // It works on the client and on the server
 var axios = require("axios");
 var cheerio = require("cheerio");
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/mongoHeadlines");
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database

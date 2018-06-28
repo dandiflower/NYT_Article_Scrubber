@@ -6,6 +6,7 @@ import SearchCard from "../../components/SearchCard";
 import ResultsCard from "../../components/ResultsCard";
 import SavedArticlesCard from "../../components/SavedArticlesCard";
 import CardHeader from "../../components/CardHeader";
+import Jumbotron from "../../components/Jumbotron";
 
 
 
@@ -26,10 +27,10 @@ class Articles extends Component {
       end_date: this.state.end_date
     })
       .then(res =>
-      this.setState({
-        articles: res.data,
+        this.setState({
+          articles: res.data,
 
-      }))
+        }))
   }
 
   handleChange = event => {
@@ -37,41 +38,75 @@ class Articles extends Component {
     this.setState({ [name]: value });
   };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = event => {
     event.preventDefault();
     this.getArticles();
   };
 
+  handleSave = event => {
+    event.preventDefault();
+    API.saveArticles({
+      title: this.state.title,
+      start_date: this.state.start_date,
+      end_date: this.state.end_date
+    })
+      .then(res =>
+        this.setState({
+          articles: res.data,
+
+      }))
+  }
+
+  handleRemove = event => {
+    event.preventDefault();
+    // API.deleteArticles(id).then(res => this.getArticles())
+    
+  }
+
   render() {
     return (
-      <div>
-        <Navbar>
-          <h1>NEW YORK TIMES ARTICLE SCRUBBER</h1>
-          <h4>Search for and annotate articles of interest!</h4>
-        </Navbar>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <Jumbotron />
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-12">
+            <SearchCard
+              handleChange={this.handleChange}
+              topic={this.state.topic}
+              start_date={this.state.start_date}
+              end_date={this.state.end_date}
+              handleFormSubmit={this.handleFormSubmit}
+            />
 
-        <CardHeader> Search
-          <SearchCard 
-            handleChange={this.handleChange}
-            topic={this.state.topic}
-            start_date={this.state.start_date}
-            end_date={this.state.end_date}
-            handleFormSubmit={this.handleFormSubmit}
-          />
-        </CardHeader>
-
-        <CardHeader> Results
-          <ResultsCard>
-
-          </ResultsCard>
-        </CardHeader>
-
-        <CardHeader> Saved Articles
-          <SavedArticlesCard>
-
-          </SavedArticlesCard>
-        </CardHeader>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-12">
+            {this.state.articles.map(article => {
+              return (
+                <ResultsCard handleSave={article.handleSave}
+                  title={article.title} />
+              );
+            })}
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-12">
+          {!this.state.articles.length ? (<h1 className="textcenter">No saved articles yet </h1>) : (
+            <SavedArticlesCard />
+            // <SavedArticlesCard handleRemove={this.deleteArticles(article._id)}/>
+          )}
+          </div>
+        </div>
+        <br />
       </div>
+
     );
   }
 }

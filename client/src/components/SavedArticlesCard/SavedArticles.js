@@ -1,11 +1,18 @@
 import React from "react";
 
 const SavedArticles = props => (
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <div className="card">
+        <div className="card-header">
+            Saved Articles
         </div>
+        
+        <div class="card-body">
+            <h5 class="card-title"> {props.title}</h5>
+           
+            <button type="submit" class="btn btn-primary" onClick={props.handleRemove}>Remove</button>
+        </div>
+
+      
     </div>
 
 );

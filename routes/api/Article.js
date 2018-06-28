@@ -17,7 +17,7 @@ router.post("/article", (req, res) => {
 // Find function in articlecontroller
 router.get("/article", (req, res)=>{
   articleController.FindAll((allArticles)=>{
-    console.log(allArticles)
+    // console.log(allArticles)
     res.json(allArticles)
   })
 });

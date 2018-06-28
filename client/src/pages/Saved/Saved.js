@@ -76,7 +76,7 @@ class Saved extends Component {
         </CardHeader>
 
         <CardHeader> Results
-          <ResultsCard handleSave={article.handlesSave}>
+          <ResultsCard>
 
           </ResultsCard>
         </CardHeader>

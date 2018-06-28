@@ -10,7 +10,7 @@ const SearchResults = props => (
                         <h5 className="card-title">{result.headline['print_headline']}</h5>
                         <p className="card-text">{result.snippet}</p>
                         <a href={result['web_url']} className="btn btn-primary">see more</a>
-                        <button data-index={index} classNameName="btn btn-primary saveArticle" onClick={props.handleSave}>Save</button>
+                        <button data-index={index} className="btn btn-primary saveArticle" onClick={props.handleSave}>Save</button>
                     </div>
             </div>
                 ))}

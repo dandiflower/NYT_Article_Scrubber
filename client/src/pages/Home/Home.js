@@ -122,13 +122,13 @@ class Home extends Component {
     const index = parseInt(el.getAttribute('data-index'));
     console.log(index);
 
-    // API.saveArticles(this.state.results[index])
-    // .then(response=>{
-    //   // remove the result at index from state
-    // })
-    // .catch(err =>{
-    //   console.log("save err", err);
-    // })
+    API.saveArticles(this.state.results[index])
+    .then(response=>{
+      // remove the result at index from state
+    })
+    .catch(err =>{
+      console.log("save err", err);
+    })
   }
 
   render() {

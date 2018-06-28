@@ -17,7 +17,7 @@ router.post("/article", (req, res) => {
 // Find function in articlecontroller
 router.get("/article", (req, res)=>{
   articleController.FindAll((allArticles)=>{
-    console.log(allArticles)
+    // console.log(allArticles)
     res.json(allArticles)
   })
 });
@@ -25,7 +25,7 @@ router.get("/article", (req, res)=>{
 // Delete function in articlecontroller
 router.delete("/article/:id", (req, res) => {
   articleController.DeleteOne(req.params.id, (results)=>{
-    console.log(results);
+    console.log("results",results);
     res.json(results);
   })
 });

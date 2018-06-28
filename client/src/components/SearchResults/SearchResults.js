@@ -2,10 +2,10 @@ import React from "react";
 import "./style.css";
 
 const SearchResults = props => (
-    <div>
+    <div className="test">
         {props.results.map((result, index) => (
             <div className="card" key={index}>
-                <img className="card-img-top" src={`https://www.nytimes.com/${result.multimedia[0].legacy.xlarge}`} alt="Card image cap"/>
+                {result.multimedia.length != 0 ? <img className="card-img-top" src={`https://www.nytimes.com/${result.multimedia[0].legacy.xlarge}`} alt="Card image cap" />  : "" }
                     <div className="card-body">
                         <h5 className="card-title">{result.headline['print_headline']}</h5>
                         <p className="card-text">{result.snippet}</p>

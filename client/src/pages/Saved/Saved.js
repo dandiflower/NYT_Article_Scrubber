@@ -9,7 +9,7 @@ import CardHeader from "../../components/CardHeader";
 
 
 
-class Articles extends Component {
+class Saved extends Component {
   state = {
     articles: [],
     topic: "",
@@ -42,6 +42,21 @@ class Articles extends Component {
     this.getArticles();
   };
 
+  
+  handleSave = event => {
+    event.preventDefault();
+    API.saveArticles({
+      title: this.state.title,
+      start_date: this.state.start_date,
+      end_date: this.state.end_date
+    })
+      .then(res =>
+        this.setState({
+          articles: res.data,
+
+        }))
+  }
+
   render() {
     return (
       <div>
@@ -61,7 +76,7 @@ class Articles extends Component {
         </CardHeader>
 
         <CardHeader> Results
-          <ResultsCard>
+          <ResultsCard handleSave={article.handlesSave}>
 
           </ResultsCard>
         </CardHeader>
@@ -76,4 +91,4 @@ class Articles extends Component {
   }
 }
 
-export default Articles;
+export default Saved;
